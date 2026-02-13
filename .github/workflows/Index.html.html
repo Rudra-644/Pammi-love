@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hey,PAMMMIII MY SWEETHEART 💖</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            overflow: hidden;
+            color: white;
+        }
+
+        h1 {
+            margin-top: 15%;
+            font-size: 45px;
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 10px white; }
+            to { text-shadow: 0 0 30px pink; }
+        }
+
+        .btn {
+            padding: 15px 35px;
+            font-size: 20px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            margin: 20px;
+            transition: 0.3s;
+        }
+
+        #yesBtn {
+            background-color: #ff4b5c;
+            color: white;
+        }
+
+        #yesBtn:hover {
+            transform: scale(1.1);
+        }
+
+        #noBtn {
+            background-color: white;
+            color: #ff4b5c;
+            position: absolute;
+        }
+
+        .heart {
+            position: absolute;
+            color: pink;
+            font-size: 20px;
+            animation: floatUp 5s linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(100vh); opacity: 1; }
+            100% { transform: translateY(-10vh); opacity: 0; }
+        }
+
+        img {
+            width: 250px;
+            border-radius: 20px;
+            margin-top: 20px;
+            box-shadow: 0 0 20px white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Hey, PAMMMIII 💕<br>❤️Will You Be My Valentine❤️?</h1>
+
+    <button class="btn" id="yesBtn" onclick="yesClicked()">Yes 💖</button>
+    <button class="btn" id="noBtn" onmouseover="moveButton()">No 😜</button>
+
+    <!-- Background Music -->
+    <audio autoplay loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        function yesClicked() {
+            document.body.innerHTML = `
+                <h1 style='margin-top:10%;'>Pammi 💖</h1>
+                <h2>You are the Valentine of the most adorable and caring person 😌💕</h2>
+                <img src="YOUR_IMAGE_LINK_HERE" alt="Us Together">
+                <h3>Forever Starts Now ❤️</h3>
+            `;
+        }
+
+        function moveButton() {
+            var x = Math.random() * (window.innerWidth - 100);
+            var y = Math.random() * (window.innerHeight - 50);
+
+            document.getElementById("noBtn").style.left = x + "px";
+            document.getElementById("noBtn").style.top = y + "px";
+        }
+
+        // Floating Hearts
+        setInterval(function() {
+            var heart = document.createElement("div");
+            heart.className = "heart";
+            heart.innerHTML = "💖";
+            heart.style.left = Math.random() * window.innerWidth + "px";
+            document.body.appendChild(heart);
+
+            setTimeout(function() {
+                heart.remove();
+            }, 5000);
+        }, 300);
+    </script>
+
+</body>
+</html>
